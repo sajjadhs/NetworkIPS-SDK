@@ -29,16 +29,16 @@ If you are using appseting.json file the define these keys:
   }
 ```
 
-Note: If you are going to publish you app to realworld then make IsSandBox:false
+Note: If you are going to publish your app to the Realworld/Production, then set IsSandBox to False
 
-Register the NetworkIPSService in your startup:
+For Asp.net core register the NetworkIPSService at the startup:
 
 ```c#
 services.Configure<NetworkIPSConfig>(options => Configuration.GetSection("NetworkIPSConfig").Bind(options));
 services.AddSingleton<INetworkIPSService,NetworkIPSService>();
 ```
 
-And finally your payment controller can be like below:
+And your payment controller can be like below:
 ```c#
 public class PaymentController : Controller
     {
@@ -81,11 +81,11 @@ public class PaymentController : Controller
     }
 ```
 
-** Order type is set to sale by default,it means no need to capture the money, because it will be captured automatically by networkips after successful payment,
-If you want to control it manually the you need to modify CreateOrderRequest and set action="AUTH".
+** Order type is set to sale by default,it means no need to capture the money because it will be captured automatically by networkips after successful payment,
+If you want to control it manually then you will need to modify CreateOrderRequest file and set action="AUTH".
 
 ## Contributing
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change/add.
 
 
 ## License
